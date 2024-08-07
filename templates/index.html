@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Image Classification</title>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Image Classification</h1>
+        </header>
+
+        <main>
+            <form action="/" method="post" enctype="multipart/form-data">
+                <div class="upload-section">
+                    <input type="file" name="imagefile" accept="image/*" required>
+                    <button type="submit">Classify Image</button>
+                </div>
+            </form>
+
+            {% if prediction %}
+            <div class="result">
+                <h2>Prediction:</h2>
+                <p>{{ prediction }}</p>
+            </div>
+            {% endif %}
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+            <p>Developed by Md Emon Hasan. | <a href="https://github.com/Md-Emon-Hasan" target="_blank">GitHub Profile</a></p>
+        </footer>
+    </div>
+</body>
+</html>

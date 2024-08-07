@@ -1,0 +1,221 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://images.pexels.com/photos/1008000/pexels-photo-1008000.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    color: #f1f1f1;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    max-height: 580px; /* Ensured overall height is < 600px */
+    height: 100%;
+    backdrop-filter: blur(1px);
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+    animation: fadeIn 2s ease-in-out;
+}
+
+header {
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #00bfff;
+    margin-bottom: 20px;
+    animation: bounceIn 1s ease-in-out;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 120px); /* Adjust based on header and footer height */
+    overflow-y: auto;
+}
+
+.upload-section {
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid #00bfff;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]::file-selector-button {
+    border: none;
+    background: #00bfff;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #007acc;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+button {
+    padding: 14px 30px;
+    font-size: 1.2em;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #00bfff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: pulse 1.5s infinite;
+}
+
+button:hover {
+    background: #007acc;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.result {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: slideInUp 1s ease-in-out;
+}
+
+.result h2 {
+    font-size: 1.8em;
+    color: #fff;
+    margin-bottom: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.result p {
+    font-size: 1.2em;
+    color: #00bfff;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #f1eded;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease-in-out;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #00bfff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
