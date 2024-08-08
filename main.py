@@ -1,13 +1,18 @@
-from flask import Flask, render_template, request
+from flask import Flask
+from flask import render_template
+from flask import request
 import os
 import logging
 from werkzeug.utils import secure_filename
-from keras.preprocessing.image import load_img, img_to_array
-from keras.applications.resnet50 import ResNet50, preprocess_input, decode_predictions
+from keras.preprocessing.image import load_img
+from keras.preprocessing.image import img_to_array
+from keras.applications.resnet50 import ResNet50
+from keras.applications.resnet50 import preprocess_input
+from keras.applications.resnet50 import decode_predictions
 
 app = Flask(__name__)
 
-# Configure logging
+# configre logging
 logging.basicConfig(level=logging.DEBUG)
 
 # Initialize the model
@@ -15,7 +20,7 @@ model = ResNet50(weights='imagenet')
 
 # Directory to store uploaded images
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-IMAGE_DIR = os.path.join(BASE_DIR, 'images')
+IMAGE_DIR = os.path.join(BASE_DIR,'images')
 
 # Ensure the images directory exists
 if not os.path.exists(IMAGE_DIR):
@@ -58,8 +63,7 @@ def predict():
         # Format the classification result
         classification = '%s (%.2f%%)' % (label[1], label[2] * 100)
     except Exception as e:
-        logging.error(f'Error: {str(e)}')
-        return f"Error: {str(e)}"
+        return str(e)
 
     return render_template('index.html', prediction=classification)
 
