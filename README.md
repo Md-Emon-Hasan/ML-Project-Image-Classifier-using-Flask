@@ -1,7 +1,3 @@
-Here's the full README text for the `Image-Classifier-using-Flask` repository:
-
----
-
 # Image Classifier using Flask
 
 Welcome to the **Image-Classifier-using-Flask** repository! This project is a web application built with Flask that classifies images into different categories based on a pre-trained machine learning model. The app provides a user-friendly interface for uploading images and receiving classification results.
